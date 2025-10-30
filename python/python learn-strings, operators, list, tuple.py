@@ -80,13 +80,15 @@ print(list1)
 ##TUPLE - this is anoda type of collection in python
 # it is ordered and unchangeable, written in round brackets.
 tuple1 = ("Chifa", "Ronny", "Emzee", "Bigila")
+print(tuple1[0])
+print(type(tuple1))
 print("this will help u check ppl wey dey the group ")
 name = input("abeg enter name of pesin u wan check: \n" ).lower()
 tuple_lower = tuple(x.lower() for x in tuple1)
 if name in tuple_lower:
     print(f"yes ohh, {name} dey the group")
 else:
-    print("nope, him no dey the group")
+    print(f"nope, {name} no dey ohhh ")
 
 
 
