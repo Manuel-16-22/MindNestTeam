@@ -47,9 +47,16 @@ for book, details in Mylibrary.items():
 
 ## now, adding new book to Mylibrary by asking the user
 #for the details
-print("   These are the books in your library   ")
-request = input("do you want to enter a new book?  Y/N: ")
-while request == "Y" or request == "y":
+print("   **These are the books in your library**   ")
+print()
+      ## this loops my request, keeps asking the user if he/she
+      ## wants to enter a new book.
+while True:
+    print()
+    request = input("do you want to enter a new book to ur library?  yes/no: ").lower()
+    if request not in ("y", "yes", "yeah"):
+        print("Alright, till next time i guess :)")
+        break
     Title = input("please enter the title of the book: ").title()
     Pages = int(input("please enter the number of pages: "))
     Genre = input("please enter the genre of the book: ")
@@ -58,18 +65,22 @@ while request == "Y" or request == "y":
     available = True
     published = (2025,11,1)
 ##adds the entered details into the already existing dictionary
-    Mylibrary["Book4"] = {
+## to auto generate next book key so i dont initiate manually again
+    next_book_number = len(Mylibrary) + 1
+
+    Mylibrary[f"book{next_book_number}"] = {
         "title": Title,
         "pages": Pages,
         "genre": Genre_f,
         "available": available,
         "published": published,
     }
-for book, details in Mylibrary.items():
-    print(f"{book}:")
-    print(f"  Title: {details['title']}")
-    print(f"  Pages: {details['pages']}")
-    print(f"  Genre: {', '.join(details['genre'])}")
-    print(f"  Available: {details['available']}")
-    print(f"  Published: {details['published']}")
-    print()   # blank line after each book
+##prints the updated library
+    for book, details in Mylibrary.items():
+        print(f"{book}:")
+        print(f"  Title: {details['title']}")
+        print(f"  Pages: {details['pages']}")
+        print(f"  Genre: {', '.join(details['genre'])}")
+        print(f"  Available: {details['available']}")
+        print(f"  Published: {details['published']}")
+        print()   # blank line after each book
